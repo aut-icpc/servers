@@ -1,4 +1,6 @@
-# servers
+# Servers
+## Introduction
+These servers are allocated on Amirkabir CEIT datacenter to Judges.
 
 | Host | IP | Users | Remote SSH Access | vCPUs | RAM | URL |
 |:----:|:--:|:----- | :------------ | :----: | :---: | :---: |
