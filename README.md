@@ -12,3 +12,5 @@ These servers are allocated on Amirkabir CEIT datacenter to Judges.
 To install the DomJudge please refer to its documentation [here](https://www.domjudge.org/).
 The only important points are `upload_max_filesize` and `post_max_size` in php and `max_allowed_packet` in mysql.
 These variables help judges to upload their test cases and they must set before they want to upload their cases.
+
+**Judges must be tested by the judges before the contest**
