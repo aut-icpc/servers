@@ -16,7 +16,7 @@ These variables help judges to upload their test cases and they must set before 
 **Judges must be tested by the judges before the contest**
 
 ## Main Judge Server
-Judge is hosted in `icpc` machine with Nginx. Domjudge has its configuration for Nginx so
+Judge is hosted in `icpc` machine with **Nginx**. Domjudge has its configuration for Nginx so
 put the following configuration in `/etc/nginx/site-enabled/domjudge` is enough.
 
 ```
@@ -77,3 +77,5 @@ server {
 # 	include /home/parham/Documents/DomJudge/domserver/etc/nginx-conf-inner;
 # }
 ```
+
+Please note that we are using **MariaDB** as database and its **root** user is private to @1995parham.
