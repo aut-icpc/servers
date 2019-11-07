@@ -86,11 +86,13 @@ There is a print panel in Domjudge web interface that can be used by teams to pr
 In order to enable it you must change the following section of `domserver/webapp/src/DOMJudgeBundle/Utils`:
 
 ```php
+...
         // Make file readable for others than webserver user,
         // and give it an extension:
         // chmod($tmp, 0644);
         // rename($tmp, $tmp.'.ps');
         $cmd = '/usr/bin/lp ' . escapeshellarg($tmp) . " 2>&1" . " && " . "rm " . escapeshellarg($tmp);
         exec($cmd, $output, $retval);
+...
 ```
 
