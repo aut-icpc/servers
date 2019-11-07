@@ -79,4 +79,18 @@ server {
 # }
 ```
 
-Please note that we are using **MariaDB** as database and its **root** user is private to @1995parham.
+Please note that we are using **MariaDB** as database and its **root** user is private to [@1995parham](https://github.com/1995parham).
+
+## Print in Domjudge
+There is a print panel in Domjudge web interface that can be used by teams to print their solution.
+In order to enable it you must change the following section of `domserver/webapp/src/DOMJudgeBundle/Utils`:
+
+```php
+        // Make file readable for others than webserver user,
+        // and give it an extension:
+        // chmod($tmp, 0644);
+        // rename($tmp, $tmp.'.ps');
+        $cmd = '/usr/bin/lp ' . escapeshellarg($tmp) . " 2>&1" . " && " . "rm " . escapeshellarg($tmp);
+        exec($cmd, $output, $retval);
+```
+
