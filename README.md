@@ -11,6 +11,7 @@ These servers are allocated on Amirkabir CEIT datacenter to Judges.
 | ~~judge-2~~ | ~~172.23.135.19~~ | ~~ssc, parham~~ | -                 | ~~2~~ | ~~4GB~~ |           -           |
 |   judge-3   |   172.23.135.39   | ssc, parham     | -                 |   2   |   4GB   |           -           |
 |   judge-4   |   172.23.135.63   | ssc, parham     | -                 |   2   |   4GB   |           -           |
+|   judge-5   |   172.23.135.64   | ssc, parham     | -                 |   2   |   4GB   |           -           |
 |  icpc-ftp   |  172.23.134.245   | ssc, parham     | -                 |   2   |   4GB   |           -           |
 |   icpc-2    |   172.23.135.38   | ssc, parham     | -                 |   2   |   4GB   | judge.ceit.aut.ac.ir  |
 
