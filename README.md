@@ -1,15 +1,18 @@
 # Servers
+
 ## Introduction
+
 These servers are allocated on Amirkabir CEIT datacenter to Judges.
 
-| Host | IP | Users | Remote SSH Access | vCPUs | RAM | URL |
-|:----:|:--:|:----- | :------------ | :----: | :---: | :---: |
-| icpc | 172.23.132.39 | ssc, parham | - | 2 | 4GB | daavar.ceit.aut.ac.ir |
-| judge-1 | 172.23.135.18 | ssc, parham | - | 2 | 4GB | - |
-| ~~judge-2~~ | ~~172.23.135.19~~ | ~~ssc, parham~~ | - | ~~2~~ | ~~4GB~~ | - |
-| judge-3 | 172.23.135.39 | ssc, parham | - | 2 | 4GB | - |
-| icpc-ftp | 172.23.134.245 | ssc, parham | - | 2 | 4GB | - |
-| icpc-2 | 172.23.135.38 | ssc, parham | - | 2 | 4GB | judge.ceit.aut.ac.ir |
+|    Host     |        IP         | Users           | Remote SSH Access | vCPUs |   RAM   |          URL          |
+| :---------: | :---------------: | :-------------- | :---------------- | :---: | :-----: | :-------------------: |
+|    icpc     |   172.23.132.39   | ssc, parham     | -                 |   2   |   4GB   | daavar.ceit.aut.ac.ir |
+|   judge-1   |   172.23.135.18   | ssc, parham     | -                 |   2   |   4GB   |           -           |
+| ~~judge-2~~ | ~~172.23.135.19~~ | ~~ssc, parham~~ | -                 | ~~2~~ | ~~4GB~~ |           -           |
+|   judge-3   |   172.23.135.39   | ssc, parham     | -                 |   2   |   4GB   |           -           |
+|   judge-4   |   172.23.135.63   | ssc, parham     | -                 |   2   |   4GB   |           -           |
+|  icpc-ftp   |  172.23.134.245   | ssc, parham     | -                 |   2   |   4GB   |           -           |
+|   icpc-2    |   172.23.135.38   | ssc, parham     | -                 |   2   |   4GB   | judge.ceit.aut.ac.ir  |
 
 To install the DomJudge please refer to its documentation [here](https://www.domjudge.org/).
 The only important points are `upload_max_filesize` and `post_max_size` in php and `max_allowed_packet` in mysql.
@@ -18,6 +21,7 @@ These variables help judges to upload their test cases and they must set before 
 **Judges must be tested by the judges before the contest**
 
 ## Main Judge Server
+
 Judge is hosted in `icpc` machine with **Nginx**. Domjudge has its configuration for Nginx so
 put the following configuration in `/etc/nginx/site-enabled/domjudge` is enough.
 
@@ -54,6 +58,7 @@ server {
 Please note that we are using **MariaDB** as database and its **root** user is private to [@1995parham](https://github.com/1995parham).
 
 ## Print in Domjudge
+
 There is a print panel in Domjudge web interface that can be used by teams to print their solution.
 In order to enable it you must change the following section of `domserver/webapp/src/DOMJudgeBundle/Utils`:
 
