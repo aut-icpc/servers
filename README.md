@@ -82,3 +82,33 @@ Here we use `lp` command for priting. Use the following instructions to have an 
 4. `smb://ceit\[username]:[password]@ceit/192.168.128.10/HPLaserJ4015`
 
 CEIT Printer: 172.23.128.38 (HP LaserJet P4015n)
+
+
+
+## Judgehosts
+
+To install judgehosts you can refer to [this](https://www.domjudge.org/docs/manual/master/install-judgehost.html) document.
+
+Keep in mind that: 
+
+- Put domjudge's sudoers rules into `/etc/sudoers.d`. this file is created after running `make install-domjudge`.
+
+- If you are running judgehost on a multi-core server. each `judgedaemon` reserves and uses a **single** CPU core, but other resources are shared among daemons. Don't run more than 4 judgedaemon on a single machine.
+
+- For each judge daemon create a user with `X` indicating a cpu core i.e. `0`:
+
+  ```shell
+  sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-X
+  sudo usermod -aG sudo domjudge-run-X
+  ```
+
+- Run judgedaemon instance with `./judgedaemon -n X`
+
+- Use **Systemd Service** provided in `lib/systemd/system` folder (if not installed automatically). Rename `domjudge-judgehost.service` to `domjudge-judgehost@.service` and Use `path-to-judgedaemon -n %i`. 
+  Enable all how many daemons you want with:
+
+  ```shell
+  sudo systemctl enable domjudge-judgehost@X
+  ```
+
+  
