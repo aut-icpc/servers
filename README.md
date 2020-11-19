@@ -14,6 +14,8 @@ These servers are allocated on Amirkabir CEIT datacenter to Judges.
 |   judge-5   |   172.23.135.64   | ssc, parham     | -                 |   2   |   4GB   |           -           |
 |  icpc-ftp   |  172.23.134.245   | ssc, parham     | -                 |   2   |   4GB   |           -           |
 |   icpc-2    |   172.23.135.38   | ssc, parham     | -                 |   2   |   4GB   | judge.ceit.aut.ac.ir  |
+| aut-icpc-1  |  172.25.157.111   | acm01, parham   | -                 |   2   |   4GB   |           -           |
+| aut-icpc-2  |  172.25.157.112   | acm01, parham   | -                 |   2   |   4GB   |           -           |
 
 To install the DomJudge please refer to its documentation [here](https://www.domjudge.org/).
 The only important points are `upload_max_filesize` and `post_max_size` in php and `max_allowed_packet` in mysql.
@@ -83,13 +85,11 @@ Here we use `lp` command for priting. Use the following instructions to have an 
 
 CEIT Printer: 172.23.128.38 (HP LaserJet P4015n)
 
-
-
 ## Judgehosts
 
 To install judgehosts you can refer to [this](https://www.domjudge.org/docs/manual/master/install-judgehost.html) document.
 
-Keep in mind that: 
+Keep in mind that:
 
 - Put domjudge's sudoers rules into `/etc/sudoers.d`. this file is created after running `make install-domjudge`.
 
@@ -104,11 +104,10 @@ Keep in mind that:
 
 - Run judgedaemon instance with `./judgedaemon -n X`
 
-- Use **Systemd Service** provided in `lib/systemd/system` folder (if not installed automatically). Rename `domjudge-judgehost.service` to `domjudge-judgehost@.service` and Use `path-to-judgedaemon -n %i`. 
+- Use **Systemd Service** provided in `lib/systemd/system` folder (if not installed automatically). Rename `domjudge-judgehost.service` to `domjudge-judgehost@.service` and Use `path-to-judgedaemon -n %i`.
   Enable all how many daemons you want with:
 
   ```shell
   sudo systemctl enable domjudge-judgehost@X
   ```
 
-  
