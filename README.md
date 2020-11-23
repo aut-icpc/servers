@@ -15,7 +15,7 @@ These servers are allocated on Amirkabir CEIT datacenter to Judges.
 |  icpc-ftp   |  172.23.134.245   | ssc, parham     | -                 |   2   |   4GB   |           -           |
 |   icpc-2    |   172.23.135.38   | ssc, parham     | -                 |   2   |   4GB   | judge.ceit.aut.ac.ir  |
 | aut-icpc-1  |  172.25.157.111   | acm01, parham   | -                 |   2   |   4GB   |           -           |
-| aut-icpc-2  |  172.25.157.112   | acm01, parham   | -                 |   2   |   4GB   |           -           |
+| aut-icpc-2  |  172.25.157.112   | acm01, parham   | -                 |   2   |   4GB   | daavar.aut.ac.ir      |
 
 To install the DomJudge please refer to its documentation [here](https://www.domjudge.org/).
 The only important points are `upload_max_filesize` and `post_max_size` in php and `max_allowed_packet` in mysql.
