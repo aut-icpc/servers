@@ -58,35 +58,45 @@
     check_implicit_admin: true
     state: present
 
+- name: create domjudge user
+  ansible.builtin.user:
+    name: domjudge
+    create_home: true
+    state: present
+
 - name: create Downloads directory
-  become: false
+  become: true
+  become_user: domjudge
   file:
-    path: $HOME/Downloads
+    path: /home/domjudge/src
     state: directory
 
 - name: download
-  become: false
+  become: true
+  become_user: domjudge
   ansible.builtin.unarchive:
     src: https://www.domjudge.org/releases/domjudge-{{version}}.tar.gz
-    dest: $HOME/Downloads
+    dest: /home/domjudge/src
     remote_src: true
-    creates: $HOME/Downloads/domjudge-{{version}}
+    creates: /home/domjudge/src/domjudge-{{version}}
 
 - name: configure
-  become: false
+  become: true
+  become_user: domjudge
   command: ./configure --prefix=$HOME/domjudge
   args:
-    chdir: $HOME/Downloads/domjudge-{{version}}
+    chdir: /home/domjudge/src/domjudge-{{version}}
     creates: paths.mk
 
 - name: make
-  become: false
+  become: true
+  become_user: domjudge
   command: make domserver
   args:
-    chdir: $HOME/Downloads/domjudge-{{version}}
+    chdir: /home/domjudge/src/domjudge-{{version}}
 
 - name: install
   become: true
   command: make install-domserver
   args:
-    chdir: "{{ ansible_env.HOME }}/Downloads/domjudge-{{version}}"
+    chdir: /home/domjudge/src/domjudge-{{version}}
