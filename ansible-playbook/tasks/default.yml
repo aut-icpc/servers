@@ -1,4 +1,9 @@
 ---
+- name: change hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+  when: ansible_hostname != inventory_hostname
+
 - name: motd
   template:
     src: templates/73-1995parham
