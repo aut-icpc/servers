@@ -1,0 +1,12 @@
+#!/bin/bash
+# {{ ansible_managed }}
+
+cat <<EOF
+    _    ____ __  __
+   / \  / ___|  \/  |
+  / _ \| |   | |\/| |
+ / ___ \ |___| |  | |
+/_/   \_\____|_|  |_|
+EOF
+
+echo provision on {{ template_run_date }}

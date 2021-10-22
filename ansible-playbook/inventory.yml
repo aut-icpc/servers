@@ -1,0 +1,6 @@
+---
+all:
+  children:
+    aut:
+      hosts:
+        172.25.157.155: {}
