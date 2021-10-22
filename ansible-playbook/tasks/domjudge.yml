@@ -24,6 +24,9 @@
       - composer
       - ntp
       - libcgroup-dev
+      - libcurl4-gnutls-dev
+      - libjsoncpp-dev
+      - libmagic-dev
 
 - name: starting and enabling the mariadb service
   service:
@@ -83,7 +86,7 @@
     chdir: $HOME/Downloads/domjudge-{{version}}
 
 - name: install
-  become: false
+  become: true
   command: make install-domserver
   args:
-    chdir: $HOME/Downloads/domjudge-{{version}}
+    chdir: "{{ ansible_env.HOME }}/Downloads/domjudge-{{version}}"
