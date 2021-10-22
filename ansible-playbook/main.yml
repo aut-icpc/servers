@@ -14,13 +14,12 @@
   roles:
     - 1995parham-me
 
-- name: domjudge installation
+- name: domjudge
   hosts:
     - daavar.aut.ac.ir
-  become: true
   tags:
     - domserver
   vars:
-    version: 7.3.3
-  tasks:
-    - import_tasks: tasks/domjudge.yml
+    domserver: enabled
+  roles:
+    - domjudge-role
