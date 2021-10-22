@@ -18,7 +18,7 @@
   hosts: all
   become: true
   tags:
-    - doomserver
+    - domserver
   vars:
     version: 7.3.3
   tasks:
