@@ -1,0 +1,6 @@
+---
+- name: motd
+  template:
+    src: templates/73-1995parham
+    dest: /etc/update-motd.d/73-1995parham
+    mode: 0755

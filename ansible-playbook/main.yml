@@ -1,0 +1,25 @@
+---
+- name: default
+  hosts: all
+  become: true
+  tags:
+    - default
+  tasks:
+    - import_tasks: tasks/default.yml
+
+- name: default
+  hosts: all
+  tags:
+    - default
+  roles:
+    - 1995parham-me
+
+- name: domjudge installation
+  hosts: all
+  become: true
+  tags:
+    - doomserver
+  vars:
+    version: 7.3.3
+  tasks:
+    - import_tasks: tasks/domjudge.yml
