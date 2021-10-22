@@ -15,7 +15,8 @@
     - 1995parham-me
 
 - name: domjudge installation
-  hosts: all
+  hosts:
+    - daavar.aut.ac.ir
   become: true
   tags:
     - domserver
