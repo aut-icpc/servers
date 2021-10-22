@@ -4,4 +4,4 @@ all:
     aut:
       hosts:
         daavar.aut.ac.ir:
-          ansible_host: 172.25.157.1555
+          ansible_host: 172.25.157.155
