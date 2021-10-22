@@ -23,7 +23,7 @@
       - php-zip
       - composer
       - ntp
-
+      - libcgroup-dev
 
 - name: starting and enabling the mariadb service
   service:
@@ -55,26 +55,35 @@
     check_implicit_admin: true
     state: present
 
+- name: create Downloads directory
+  become: false
+  file:
+    path: $HOME/Downloads
+    state: directory
+
 - name: download
-  become: true
+  become: false
   ansible.builtin.unarchive:
     src: https://www.domjudge.org/releases/domjudge-{{version}}.tar.gz
-    dest: /opt
+    dest: $HOME/Downloads
     remote_src: true
-    creates: /opt/domjudge-{{version}}
+    creates: $HOME/Downloads/domjudge-{{version}}
 
 - name: configure
-  command: ./configure --prefix=/opt/domjudge
+  become: false
+  command: ./configure --prefix=$HOME/domjudge
   args:
-    chdir: /opt/domjudge-{{version}}
+    chdir: $HOME/Downloads/domjudge-{{version}}
     creates: paths.mk
 
 - name: make
+  become: false
   command: make domserver
   args:
-    chdir: /opt/domjudge-{{version}}
+    chdir: $HOME/Downloads/domjudge-{{version}}
 
 - name: install
+  become: false
   command: make install-domserver
   args:
-    chdir: /opt/domjudge-{{version}}
+    chdir: $HOME/Downloads/domjudge-{{version}}
