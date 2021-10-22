@@ -3,4 +3,5 @@ all:
   children:
     aut:
       hosts:
-        172.25.157.155: {}
+        daavar.aut.ac.ir:
+          ansible_host: 172.25.157.1555
