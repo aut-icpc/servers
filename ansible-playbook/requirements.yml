@@ -5,5 +5,10 @@ roles:
     version: main
     name: 1995parham-me
 
+  - src: https://github.com/aut-icpc/domjudge-role.git
+    scm: git
+    version: main
+    name: domjudge-role
+
 collections:
   - community.general
