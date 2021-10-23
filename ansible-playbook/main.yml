@@ -23,16 +23,3 @@
     domserver: enabled
   roles:
     - domjudge-role
-
-- name: domjudge
-  hosts:
-    - daavar.aut.ac.ir
-  tags:
-    - domserver
-  tasks:
-    - name: apache
-      become: true
-      template:
-        src: templates/000-default.conf
-        dest: /etc/apache2/sites-available/000-default.conf
-        mode: 0755
