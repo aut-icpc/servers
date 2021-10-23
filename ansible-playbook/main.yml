@@ -25,6 +25,10 @@
     - domjudge-role
 
 - name: domjudge
+  hosts:
+    - daavar.aut.ac.ir
+  tags:
+    - domserver
   tasks:
     - name: apache
       template:
