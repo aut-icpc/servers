@@ -23,43 +23,6 @@ These variables help judges to upload their test cases and they must set before 
 
 **Judges must be tested by the judges before the contest**
 
-## Main Judge Server
-
-Judge is hosted in `icpc` machine with **Nginx**. Domjudge has its configuration for Nginx so
-put the following configuration in `/etc/nginx/site-enabled/domjudge` is enough.
-
-```
-# Generated from 'nginx-conf.in' on Wed May  8 05:10:46 +0430 2019.
-
-# nginx configuration for DOMjudge
-
-### upstream ###
-#
-# always include this and make sure it points to the socket of PHP-FPM
-upstream domjudge {
-        server unix:/var/run/php-fpm-domjudge.sock; # if using with etc/domjudge-fpm.conf
-        #server unix:/run/php/php7.0-fpm.sock; # default on ubuntu servers
-}
-
-limit_req_zone $binary_remote_addr zone=domjudge:10m rate=100r/s;
-
-### http host config ###
-#
-
-server {
-        listen 80;
-        listen [::]:80;
-
-        location / {
-                return 301 /domjudge;
-        }
-
-        include /home/parham/Documents/DomJudge/domserver/etc/nginx-conf-inner;
-}
-```
-
-Please note that we are using **MariaDB** as database and its **root** user is private to [@1995parham](https://github.com/1995parham).
-
 ## Print in Domjudge
 
 There is a print panel in Domjudge web interface that can be used by teams to print their solution.
