@@ -35,7 +35,7 @@
     judgehost: enabled
     judgehost_domservers:
       - id: default
-        url: http://daavar.aut.ac.ir/domjudge/api
+        url: https://daavar.aut.ac.ir/domjudge/api
         user: judgehost
         pass: NP3FziLos2cHN0LN
   roles:
