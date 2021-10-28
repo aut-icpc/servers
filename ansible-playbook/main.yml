@@ -33,5 +33,10 @@
   vars:
     domserver: disabled
     judgehost: enabled
+    judgehost_domservers:
+      - id: default
+        url: http://172.25.157.155/domjudge/api
+        user: judgehost
+        pass: NP3FziLos2cHN0LN
   roles:
     - domjudge-role
