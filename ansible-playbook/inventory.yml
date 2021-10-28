@@ -5,3 +5,5 @@ all:
       hosts:
         daavar.aut.ac.ir:
           ansible_host: 172.25.157.155
+        jh-01.aut.ac.ir:
+          ansible_host: 172.25.157.156

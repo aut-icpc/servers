@@ -24,3 +24,14 @@
     judgehost: enabled
   roles:
     - domjudge-role
+
+- name: judgehost
+  hosts:
+    - jh-01.aut.ac.ir
+  tags:
+    - judgehost
+  vars:
+    domserver: disabled
+    judgehost: enabled
+  roles:
+    - domjudge-role
